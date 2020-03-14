@@ -403,18 +403,6 @@ def setup():
     fb1 = Button(root,text="Browse",command=load_file,fg="#ff00ff",bg="#ffff00",font=('times', 15, 'bold'))
     fb1.grid(row=11,column=40,columnspan=2)
     
-    '''
-    l = Label(root,text="Cheie Cezar:")
-    l.grid(row=12,column=32)
-    global cheie_cezar
-    cheie_cezar = Entry(root,borderwidth=5)
-    cheie_cezar.grid(row=12,column=33,columnspan=7)
-
-    l = Label(root,text="Cheie Polybus:")
-    l.grid(row=13,column=32)
-    global cheie_polybus
-    cheie_polybus = Entry(root,borderwidth=5)
-    cheie_polybus.grid(row=13,column=33,columnspan=7)'''
     fb2 = Button(root,text="Save",command=save_file,fg="#ff00ff",bg="#ffff00",font=('times', 15, 'bold'))
     fb2.grid(row=15,column=34,columnspan=3)
 
@@ -430,21 +418,14 @@ def save_file():
         return
 
     file_path = file_in.get()
-    print(file_path)
     global r
     with open(file_path,'r') as g:
         my_str = g.readlines()
         # criptare
         if r.get() == 1:
-            print("Criptare")
             # inserez textul citit din fisier in plain_textbox cezar
             plain_textbox.delete(0,END)
             plain_textbox.insert(0,my_str)
-
-            '''# inserez cheia (cezar)
-            global shift_num, shift
-            shift_num = int(ck)
-            shift.config(text=shift_num)'''
 
             # criptez textul (cezar)
             do_cipher()
@@ -452,13 +433,6 @@ def save_file():
             # incarc output-ul in plain_textbox2 polybus
             plain_textbox2.delete(0,END)
             plain_textbox2.insert(0,cipher_textbox.get())
-
-            '''# inserez cheia (polybus)
-            global polybus_key
-            polybus_key.delete(0,END)
-            polybus_key.insert(0,pk)
-            make_square()'''
-
 
             # aplic criptarea (polybus)
             cipher_polybus()
@@ -468,16 +442,9 @@ def save_file():
         
         # decriptare
         if r.get() == 2:
-            print("decriptare")
             # inserez textul citit din fisier in cipher_texbox2 polybus
             cipher_textbox2.delete(0,END)
             cipher_textbox2.insert(0,my_str)
-
-            '''# inserez cheia polybus
-            global polybus_key
-            polybus_key.delete(0,END)
-            polybus_key.insert(0,pk)
-            make_square()'''
 
             # decriptez textul
             plain_textbox2.delete(0,END)
@@ -486,11 +453,6 @@ def save_file():
             # incarc output-ul in cipher_textbox cezar
             cipher_textbox.delete(0,END)
             cipher_textbox.insert(0,plain_textbox2.get())
-
-            '''# inserez cheia (cezar)
-            global shift_num, shift
-            shift_num = int(ck)
-            shift.config(text=shift_num)'''
 
             # decriptez textul (cezar)
             do_decipher()
