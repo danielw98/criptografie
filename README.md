@@ -29,7 +29,7 @@ A graphical user interface application made in Python using the Tkinter library 
 
 # Demo Usage
 
-![Cryptography App Animation](https://github.com/danielw98/criptografie/blob/main/criptografie.gif?raw=true)
+![Cryptography App Animation](https://github.com/danielw98/criptografie/blob/master/criptografie.gif?raw=true)
 
 # Getting Started
 
